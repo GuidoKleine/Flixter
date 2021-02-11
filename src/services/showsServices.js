@@ -6,7 +6,7 @@ const baseUrl = 'http://api.tvmaze.com';
 */
 export async function getAllShows() {
   let shows;
-  await axios.get(`${baseUrl}/shows/1`)
+  await axios.get(`${baseUrl}/shows`)
     .then((response) => {
       shows = response.data;
     })

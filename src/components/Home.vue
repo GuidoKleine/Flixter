@@ -1,14 +1,21 @@
 <template>
   <div>
-    {{ shows }}
+
+    <div v-for='show in shows' :key="show.id">
+     <card :title="show.name" :body='show.summary'></card>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
+import Card from '@/components/Card.vue';
 
 export default {
   name: 'Home',
+  components: {
+    Card,
+  },
   data() {
     return {
     };
