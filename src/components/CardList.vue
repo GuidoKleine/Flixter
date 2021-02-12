@@ -1,7 +1,9 @@
 <template>
   <div class="container">
-    <ul>
-      <card :title="cardtitle" :body='cardbody'> </card>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <card :title="cardtitle" :body='cardbody'> </card>
+      </li>
     </ul>
   </div>
 </template>

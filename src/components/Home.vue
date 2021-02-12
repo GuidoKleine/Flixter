@@ -17,18 +17,25 @@ export default {
   },
   data() {
     return {
+      genres: [],
     };
   },
-  created() {
-    this.setShows();
+  async created() {
+    await this.setShows();
+    this.showGenres();
   },
-  computed: mapState([
+  computed:
+  mapState([
     'shows',
   ]),
   methods: {
     ...mapActions([
       'setShows',
     ]),
+    showGenres() {
+      this.genres = this.$store.getters.getGenres;
+      console.log(this.genres);
+    },
   },
 };
 </script>

@@ -16,11 +16,12 @@ async function getAllShows() {
   return shows;
 }
 
-async function getOneShow() {
+async function getGenres() {
   let show;
-  await axios.get(`${baseUrl}/shows/1`)
+  await axios.get(`${baseUrl}/shows`)
     .then((response) => {
       show = response.data;
+      console.log(show);
     })
     .catch((error) => {
       console.log('Something went wrong ', error);
@@ -29,4 +30,4 @@ async function getOneShow() {
   return show;
 }
 
-export default { getAllShows, getOneShow };
+export default { getAllShows, getGenres };
