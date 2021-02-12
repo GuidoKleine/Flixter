@@ -1,31 +1,35 @@
 <template>
-  <div>
-
+  <div class="container">
     <div v-for='show in shows' :key="show.id">
-     <card :title="show.name" :body='show.summary'></card>
+     <CardList :cardtitle="show.name" :cardbody='show.summary'></CardList>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import Card from '@/components/Card.vue';
+import { mapState, mapActions } from 'vuex';
+import CardList from '@/components/CardList.vue';
 
 export default {
   name: 'Home',
   components: {
-    Card,
+    CardList,
   },
   data() {
     return {
     };
   },
-  mounted() {
-    this.$store.dispatch('setShows');
+  created() {
+    this.setShows();
   },
   computed: mapState([
     'shows',
   ]),
+  methods: {
+    ...mapActions([
+      'setShows',
+    ]),
+  },
 };
 </script>
 

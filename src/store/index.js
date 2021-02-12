@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { getAllShows } from '@/services/showsServices';
+import showsServices from '@/services/showsServices';
 
 Vue.use(Vuex);
 
@@ -21,8 +21,8 @@ export default new Vuex.Store({
 
   actions: {
     async setShows({ commit }) {
-      const shows = await getAllShows();
-      commit('SET_SHOWS', shows);
+      const data = await showsServices.getAllShows();
+      commit('SET_SHOWS', data);
     },
   },
 });
