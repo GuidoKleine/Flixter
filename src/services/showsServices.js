@@ -16,18 +16,4 @@ async function getAllShows() {
   return shows;
 }
 
-async function getGenres() {
-  let show;
-  await axios.get(`${baseUrl}/shows`)
-    .then((response) => {
-      show = response.data;
-      console.log(show);
-    })
-    .catch((error) => {
-      console.log('Something went wrong ', error);
-    });
-
-  return show;
-}
-
-export default { getAllShows, getGenres };
+export default { getAllShows };
