@@ -14,14 +14,16 @@ export default new Vuex.Store({
       },
     ],
     show: [],
-    search: false,
+    searchOverlay: false,
+    searchedShows: [],
   },
 
   getters: {
     getShows: (state) => state.shows,
     getGenres: (state) => state.genres,
     getSingleShowInfo: (state) => state.show,
-    getSearch: (state) => state.search,
+    getSearchOverlay: (state) => state.searchOverlay,
+    getSearched: (state) => state.searchedShows,
   },
 
   mutations: {
@@ -34,8 +36,11 @@ export default new Vuex.Store({
     SET_SHOW(state, data) {
       state.show = data;
     },
-    SET_SEARCH(state, data) {
-      state.search = data;
+    SET_SEARCHOVERLAY(state, data) {
+      state.searchOverlay = data;
+    },
+    SET_SEARCHEDSHOWS(state, data) {
+      state.searchedShows = data;
     },
   },
 
@@ -59,7 +64,11 @@ export default new Vuex.Store({
       commit('SET_SHOW', data);
     },
     setSearch({ commit }, boolean) {
-      commit('SET_SEARCH', boolean);
+      commit('SET_SEARCHOVERLAY', boolean);
+    },
+    async setSearchedShows({ commit }, searchQuery) {
+      const data = await showsServices.getSearchedShow(searchQuery);
+      commit('SET_SEARCHEDSHOWS', data);
     },
   },
 });

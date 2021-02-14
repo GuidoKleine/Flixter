@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const baseUrl = 'http://api.tvmaze.com';
 /*
-  Fetches one show from tvmaze api
+  Fetches all shows from tvmaze api
 */
 async function getAllShows() {
   let shows;

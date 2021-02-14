@@ -3,7 +3,7 @@
   style="height: 100px;">
     <header class=" container d-flex justify-content-end text-white text-center">
       <b-btn
-      @click='setSearch(!getSearch)'>
+      @click='setSearch(!getSearchOverlay)'>
         Search
       </b-btn>
     </header>
@@ -17,7 +17,7 @@ export default {
   name: 'Header',
   computed: {
     ...mapGetters([
-      'getSearch',
+      'getSearchOverlay',
     ]),
   },
   methods: {
