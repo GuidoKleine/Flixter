@@ -8,19 +8,26 @@
   opacity="1">
     <template v-slot:overlay>
       <div style="top: 20%; left: 50%;">
-      <b-btn
-        @click="setSearch(!getSearchOverlay)">
-        X
-      </b-btn>
-      <b-container col class="d-flex">
-      <b-form-input
-      placeholder="Search for show"
-      v-model="searchQuery"
-      @input="searchForShows"
-      />
-      <Card :id="show.name" v-for="show in shows"
-          :key="show + show.id" :show="show" />
-      </b-container>
+        <b-btn
+          @click="setSearchOverlay(!getSearchOverlay)">
+          X
+        </b-btn>
+        <b-container col class="d-flex">
+          <b-row>
+            <b-col>
+              <b-form-input
+              placeholder="Search for show"
+              v-model="searchQuery"
+              @input="searchForShows"
+              />
+              <b-list-group horizontal class="overflow-auto bg-light p-2">
+                <Card v-for="tvshow in shows"
+                :key="tvshow.show.id" :show="tvshow.show"
+                />
+              </b-list-group>
+            </b-col>
+          </b-row>
+        </b-container>
       </div>
     </template>
   </b-overlay>
@@ -49,12 +56,12 @@ export default {
   },
   methods: {
     ...mapActions([
-      'setSearch',
+      'setSearchOverlay',
       'setSearchedShows',
     ]),
-    searchForShows() {
-      this.shows = this.getSearched(this.searchQuery);
-      console.log(this.shows);
+    async searchForShows() {
+      await this.setSearchedShows(this.searchQuery);
+      this.shows = await this.getSearched;
     },
   },
 };

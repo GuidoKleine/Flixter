@@ -30,7 +30,7 @@ async function getSingleShow(id) {
 
 async function getSearchedShow(searchQuery) {
   let shows;
-  await axios.get(`${baseUrl}/shows?q=${searchQuery}`)
+  await axios.get(`${baseUrl}/search/shows?q=${searchQuery}`)
     .then((response) => {
       shows = response.data;
     })

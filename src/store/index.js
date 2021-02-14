@@ -63,7 +63,7 @@ export default new Vuex.Store({
       const data = await showsServices.getSingleShow(showId);
       commit('SET_SHOW', data);
     },
-    setSearch({ commit }, boolean) {
+    async setSearchOverlay({ commit }, boolean) {
       commit('SET_SEARCHOVERLAY', boolean);
     },
     async setSearchedShows({ commit }, searchQuery) {
