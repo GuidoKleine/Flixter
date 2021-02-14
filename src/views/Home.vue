@@ -1,7 +1,8 @@
 <template>
   <div class="bg-light">
     <b-container fluid class="py-2" :id="genre"
-    v-for='(genre, index) in getGenres' :key="index">
+    v-for='(genre, index) in getGenres' :key="index"
+    >
       <h2>
         <b-badge>
           {{genre}}
@@ -9,7 +10,8 @@
       </h2>
       <b-list-group horizontal class="overflow-auto bg-light p-2">
           <Card :id="show.name" v-for="show in sortByGenre(genre)"
-          :key="show + show.id" :show="show" />
+          :key="show + show.id" :show="show"
+          />
       </b-list-group>
     </b-container>
   </div>

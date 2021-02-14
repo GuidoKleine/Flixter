@@ -3,7 +3,8 @@
   style="height: 100px;">
     <header class=" container d-flex justify-content-end text-white text-center">
       <b-btn
-      @click='setSearchOverlay(!getSearchOverlay)'>
+      @click='setSearchOverlay(!getSearchOverlay)'
+      >
         Search
       </b-btn>
     </header>

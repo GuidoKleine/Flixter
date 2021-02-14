@@ -7,12 +7,14 @@
       </b-col>
       <b-col cols="12" md="8">
         <b-card
-        :title="getSingleShowInfo.name">
+        :title="getSingleShowInfo.name"
+        >
           <div>
             <span
               v-for="genre in getSingleShowInfo.genres"
               :key="genre"
-              class="mr-1 mb-6 ">
+              class="mr-1 mb-6 "
+              >
               {{ genre }}
             </span>
             <b-card-title>{{ getSingleShowInfo.rating.average }}</b-card-title>

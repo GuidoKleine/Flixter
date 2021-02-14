@@ -9,7 +9,8 @@
     <template v-slot:overlay>
       <div style="top: 20%; left: 50%;">
         <b-btn
-          @click="setSearchOverlay(!getSearchOverlay)">
+        @click="setSearchOverlay(!getSearchOverlay)"
+        >
           X
         </b-btn>
         <b-container col class="d-flex">
