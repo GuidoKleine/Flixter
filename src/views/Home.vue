@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <b-container fluid class="bg-light py-2" :id="genre"
+  <div class="bg-light">
+    <b-container fluid class="py-2" :id="genre"
     v-for='(genre, index) in getGenres' :key="index">
       <h2>
         <b-badge>
@@ -29,7 +29,10 @@ export default {
     await this.setGenres();
   },
   computed: {
-    ...mapGetters(['getShows', 'getGenres']),
+    ...mapGetters([
+      'getShows',
+      'getGenres',
+    ]),
   },
   methods: {
     ...mapActions([
@@ -38,7 +41,7 @@ export default {
     ]),
     sortByGenre(genre) {
       const sortedByGenre = this.getShows.filter((show) => show.genres
-        .some((category) => category === genre));
+        .some((category) => category === genre)).slice(0, 20);
       return sortedByGenre;
     },
   },

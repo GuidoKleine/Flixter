@@ -16,4 +16,28 @@ async function getAllShows() {
   return shows;
 }
 
-export default { getAllShows };
+async function getSingleShow(id) {
+  let show;
+  await axios.get(`${baseUrl}/shows/${id}`)
+    .then((response) => {
+      show = response.data;
+    })
+    .catch((error) => {
+      console.log('Something went wrong ', error);
+    });
+  return show;
+}
+
+async function getSearchedShow(searchQuery) {
+  let shows;
+  await axios.get(`${baseUrl}/shows?q=${searchQuery}`)
+    .then((response) => {
+      shows = response.data;
+    })
+    .catch((error) => {
+      console.log('Something went wrong ', error);
+    });
+  return shows;
+}
+
+export default { getAllShows, getSingleShow, getSearchedShow };

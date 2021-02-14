@@ -13,11 +13,15 @@ export default new Vuex.Store({
         genreArray: Array,
       },
     ],
+    show: [],
+    search: false,
   },
 
   getters: {
     getShows: (state) => state.shows,
     getGenres: (state) => state.genres,
+    getSingleShowInfo: (state) => state.show,
+    getSearch: (state) => state.search,
   },
 
   mutations: {
@@ -27,11 +31,19 @@ export default new Vuex.Store({
     SET_GENRES(state, data) {
       state.genres = data;
     },
+    SET_SHOW(state, data) {
+      state.show = data;
+    },
+    SET_SEARCH(state, data) {
+      state.search = data;
+    },
   },
 
   actions: {
     async setShows({ commit }) {
       const data = await showsServices.getAllShows();
+      data.sort((currValue, nextValue) => (
+        currValue.rating.average < nextValue.rating.average ? 1 : -1));
       commit('SET_SHOWS', data);
     },
     async setGenres({ commit }) {
@@ -41,6 +53,13 @@ export default new Vuex.Store({
       });
       const data = returnArray.filter((item, index) => (returnArray.indexOf(item) === index));
       commit('SET_GENRES', data);
+    },
+    async setShowInfo({ commit }, showId) {
+      const data = await showsServices.getSingleShow(showId);
+      commit('SET_SHOW', data);
+    },
+    setSearch({ commit }, boolean) {
+      commit('SET_SEARCH', boolean);
     },
   },
 });
