@@ -1,16 +1,16 @@
 <template>
   <div>
-    <b-container fluid v-for='(genre, index) in getGenres' :key="index">
+    <b-container fluid class="bg-light py-2" :id="genre"
+    v-for='(genre, index) in getGenres' :key="index">
       <h2>
         <b-badge>
           {{genre}}
         </b-badge>
       </h2>
-      <b-card-group deck>
-        <div v-for="(show) in sortByGenre(genre)" :key="show + show.id">
-          <Card :show="show" />
-        </div>
-      </b-card-group>
+      <b-list-group horizontal class="overflow-auto bg-light p-2">
+          <Card :id="show.name" v-for="(show) in sortByGenre(genre)"
+          :key="show + show.id" :show="show" />
+      </b-list-group>
     </b-container>
   </div>
 </template>
@@ -44,7 +44,3 @@ export default {
   },
 };
 </script>
-
-<style>
-
-</style>
