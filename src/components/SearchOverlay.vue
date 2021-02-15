@@ -7,16 +7,19 @@
   :show="getSearchOverlay"
   opacity="1">
     <template v-slot:overlay>
-      <div style="top: 20%; left: 50%;">
+      <b-container>
+        <b-row>
+          <b-col sm="1">
         <b-btn
-        @click="setSearchOverlay(!getSearchOverlay)"
+        class="m-2"
+        @click="setSearchOverlay(!getSearchOverlay); searchQuery=''; shows=[]"
         >
           X
         </b-btn>
-        <b-container col class="d-flex">
-          <b-row>
-            <b-col>
+          </b-col>
+            <b-col sm="11">
               <b-form-input
+              class="m-2"
               placeholder="Search for show"
               v-model="searchQuery"
               @input="searchForShows"
@@ -29,7 +32,6 @@
             </b-col>
           </b-row>
         </b-container>
-      </div>
     </template>
   </b-overlay>
 </template>

@@ -29,7 +29,12 @@ export default {
 </script>
 
 <style>
+html, body {
+  height: 100%;
+}
+
 #app {
+  background-color: #f8f9fa;
   height: 100%;
 }
 </style>
