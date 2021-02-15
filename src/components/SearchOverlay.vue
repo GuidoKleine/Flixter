@@ -54,7 +54,7 @@ export default {
   computed: {
     ...mapGetters([
       'getSearchOverlay',
-      'getSearched',
+      'getSearchedShows',
     ]),
   },
   methods: {
@@ -64,7 +64,7 @@ export default {
     ]),
     async searchForShows() {
       await this.setSearchedShows(this.searchQuery);
-      this.shows = await this.getSearched;
+      this.shows = await this.getSearchedShows;
     },
   },
 };

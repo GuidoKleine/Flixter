@@ -28,7 +28,7 @@ async function getSingleShow(id) {
   return show;
 }
 
-async function getSearchedShow(searchQuery) {
+async function getSearchedQuery(searchQuery) {
   let shows;
   await axios.get(`${baseUrl}/search/shows?q=${searchQuery}`)
     .then((response) => {
@@ -40,4 +40,4 @@ async function getSearchedShow(searchQuery) {
   return shows;
 }
 
-export default { getAllShows, getSingleShow, getSearchedShow };
+export default { getAllShows, getSingleShow, getSearchedQuery };
