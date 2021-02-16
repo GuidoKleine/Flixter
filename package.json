@@ -9,7 +9,8 @@
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "ut": "npm run test:unit -- --collectCoverage"
   },
   "dependencies": {
     "@babel/polyfill": "^7.11.5",

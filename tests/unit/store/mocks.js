@@ -3,7 +3,9 @@ export const tvSHowsMock = [
     id: 1,
     name: 'Under the Dome',
     genres: ['Drama', 'Science-Fiction', 'Thriller'],
-    rating: { average: 6.5 },
+    rating: {
+      average: 6.5,
+    },
     image: {
       medium: 'http://static.tvmaze.com/uploads/images/medium_portrait/81/202627.jpg',
       original: 'http://static.tvmaze.com/uploads/images/original_untouched/81/202627.jpg',
@@ -17,7 +19,9 @@ export const tvSHowsMock = [
     id: 2,
     name: 'Person of Interest',
     genres: ['Action', 'Crime', 'Science-Fiction'],
-    rating: { average: 8.9 },
+    rating: {
+      average: 8.9,
+    },
     image: {
       medium: 'http://static.tvmaze.com/uploads/images/medium_portrait/163/407679.jpg',
       original: 'http://static.tvmaze.com/uploads/images/original_untouched/163/407679.jpg',
@@ -33,7 +37,9 @@ export const tvSHowsMock = [
     id: 3,
     name: 'Bitten',
     genres: ['Drama', 'Horror', 'Romance'],
-    rating: { average: 7.5 },
+    rating: {
+      average: 7.5,
+    },
     image: {
       medium: 'http://static.tvmaze.com/uploads/images/medium_portrait/0/15.jpg',
       original: 'http://static.tvmaze.com/uploads/images/original_untouched/0/15.jpg',
@@ -53,7 +59,9 @@ export const singleShowMock = [
     id: 1,
     name: 'Under the Dome',
     genres: ['Drama', 'Science-Fiction', 'Thriller'],
-    rating: { average: 6.5 },
+    rating: {
+      average: 6.5,
+    },
     image: {
       medium: 'http://static.tvmaze.com/uploads/images/medium_portrait/81/202627.jpg',
       original: 'http://static.tvmaze.com/uploads/images/original_untouched/81/202627.jpg',

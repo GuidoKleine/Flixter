@@ -10,9 +10,10 @@ describe('Home', () => {
   const wrapper = shallowMount(Home, {
     mocks: {
       $store: {
+        dispatch: jest.fn(),
         getters: {
           getShows: tvSHowsMock,
-          getGenres: genresMock,
+          getGenres: jest.fn().mockReturnValue(genresMock),
         },
       },
     },
@@ -21,6 +22,10 @@ describe('Home', () => {
   afterEach(() => {
     jest.resetModules();
     jest.clearAllMocks();
+  });
+
+  it('should check if the component is mounted', () => {
+    expect(!!wrapper.vm).toBeTruthy();
   });
 
   it('should sort the shows by genre', () => {
