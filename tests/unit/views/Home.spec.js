@@ -1,15 +1,22 @@
-import Home from '@/views/Home.vue';
 import { shallowMount } from '@vue/test-utils';
+import Home from '@/views/Home.vue';
 import {
+  tvSHowsMock,
+  genresMock,
   singleShowMock,
 } from '../store/mocks';
 
 describe('Home', () => {
-  let wrapper;
-
-  beforeEach(
-    wrapper = shallowMount(Home),
-  );
+  const wrapper = shallowMount(Home, {
+    mocks: {
+      $store: {
+        getters: {
+          getShows: tvSHowsMock,
+          getGenres: genresMock,
+        },
+      },
+    },
+  });
 
   afterEach(() => {
     jest.resetModules();
